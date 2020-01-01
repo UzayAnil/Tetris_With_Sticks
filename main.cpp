@@ -1,24 +1,11 @@
-// Tetris ~TEST~
+// Tetris NO LAG
 #include <iostream>
 #include <vector>
-#include <queue>
 #include <deque>
 
 #include "Tests.h"
 #include "GameFunctions.h"
-
-/** 
-* If set to true, it will run tests instead of the game.
-* I used this during development.
-*/ 
 #define RUNTESTS false
-
-/**
-* Gaining points:
-* +1 every time you place a block successfully.
-* +5 every time you complate and clear a row.
-* -1 everytime you try to incorrectly place a block.
-*/
 
 int main(int argc, char* argv[]){
         auto board = makeBoard(rows, columns);
@@ -26,8 +13,7 @@ int main(int argc, char* argv[]){
         if(RUNTESTS){
                 RunTests();
         } else{
-                bool keepPlaying = true;
-                while(keepPlaying){
+                while(true){
                         std::cout << "Points: " << points << std::endl;
                         // make random block
                         int newBlock = makeBlock();
@@ -50,15 +36,12 @@ int main(int argc, char* argv[]){
                         }
 
                         // try to place the block 
-                        bool placementSuccess = false;
                         try{
-                                placementSuccess = updateBoard(board, newPos, newBlock);
+                                 updateBoard(board, newPos, newBlock);
                         } catch(std::runtime_error& e){
                                 std::cerr << e.what() << std::endl;
                                 return EXIT_SUCCESS;
                         }
-
-                        keepPlaying = true;
                 }
         }
 

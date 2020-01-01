@@ -2,7 +2,7 @@
 
 #include "GameFunctions.h"
 
-/**
+/*
 * Check if we can make a board correctly.
 */
 void TestMakeBoard(){

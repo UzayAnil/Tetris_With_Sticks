@@ -4,6 +4,7 @@
 static int points = 0;
 const static int rows = 10;
 const static int columns = 6;
+const static int cols = columns;
 
 template <typename TRow>
 void printRow(const TRow& row){
@@ -65,6 +66,9 @@ bool updateBoard(TBoard& board,
                 int blockSize){
         TBoard newBoard;
 
+        const int rowSize = board.size();
+        const int colSize = board[0].size();
+
         bool updateSuccess = false;
         int extraRow = 0;
         while(!board.empty()){
@@ -91,7 +95,7 @@ bool updateBoard(TBoard& board,
         if(extraRow > 0){
                 // +5 for every cleared row.
                 points += 5;
-                newBoard.push_back(std::vector<bool>(columns, false));
+                newBoard.push_back(std::vector<bool>(colSize, false));
         }
 
         board = newBoard;
@@ -100,32 +104,8 @@ bool updateBoard(TBoard& board,
 }
 
 int makeBlock(){
-        // return a block between 1 and 3
-        return rand() % 4 + 1;
-}
-
-bool didWeWin(const std::vector<bool>& board){
-        for(auto cell : board){
-                if(cell == false){
-                        return false;
-                }
-        }
-        return true;
-}
-
-bool askKeepPlaying(){
-        // ask if the player wants keep Playing
-        std::cout << "Keep Playing? (Y/N)" << std::endl;
-        std::string keepPlayingText = "Y";
-        std::cin >> keepPlayingText;
-        if(keepPlayingText == "Y" || keepPlayingText == "y"){
-                return true;
-        } else if(keepPlayingText == "N" || keepPlayingText == "n"){
-                return false;
-        } else{
-                std::cout << "I don't know that option. I guess that is a no? :)" << std::endl;
-                return false;       
-        }
+        // return a block between 1 and 4
+        return rand() % 5 + 1;
 }
 
 bool checkIfPositionValid(int blockSize, int blockPos, int rowSize){
