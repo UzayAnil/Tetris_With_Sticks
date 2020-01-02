@@ -1,4 +1,5 @@
 # Tetris_With_Sticks
+
 Game Play:
 In each turn, you are given a block of varying length.
 Type in the position to place the block on the board.
@@ -11,4 +12,5 @@ Clearing a row: +5
 Winning and Losing:
 If the blocks reach the top, you lose!
 There is no Winning, so play until you lose.
-Comment your highscore in the comment section below!
+
+(This is a prototype from https://www.repl.it)
