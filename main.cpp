@@ -13,10 +13,16 @@ int main(int argc, char* argv[]){
         if(RUNTESTS){
                 RunTests();
         } else{
+                printGameRules();
+                bool updateSuccess = true;
+                bool validPos = true;
+                int newBlock = 0;
                 while(true){
                         std::cout << "Points: " << points << std::endl;
                         // make random block
-                        int newBlock = makeBlock();
+                        if(updateSuccess && validPos){
+                                newBlock = makeBlock();
+                        }
 
                         // ask where to put it
                         printBoard(board);
@@ -28,7 +34,7 @@ int main(int argc, char* argv[]){
                         int newPos = 0;
                         std::cin >> newPos;
 
-                        bool validPos = checkIfPositionValid(newBlock, newPos, columns);
+                        validPos = checkIfPositionValid(newBlock, newPos, columns);
                         if(!validPos){
                                 points--;
                                 std::cerr << "You cannot place the block here." << std::endl;
@@ -37,7 +43,7 @@ int main(int argc, char* argv[]){
 
                         // try to place the block 
                         try{
-                                 updateBoard(board, newPos, newBlock);
+                                updateSuccess = updateBoard(board, newPos, newBlock);
                         } catch(std::runtime_error& e){
                                 std::cerr << e.what() << std::endl;
                                 return EXIT_SUCCESS;

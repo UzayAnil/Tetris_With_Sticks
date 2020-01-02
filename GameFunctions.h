@@ -6,6 +6,23 @@ const static int rows = 10;
 const static int columns = 6;
 const static int cols = columns;
 
+void printGameRules(){
+        std::cout << "Game Play:\n" <<
+        "In each turn, you are given a block of varying length.\n" <<
+        "Type in the position to place the block on the board.\n" << 
+        "The block will be placed in the first available row from the bottom at the given position.\n" <<
+        "If the placement is outside of the board, you will be given the same block again.\n" <<
+        "Earning (or losing :)) points:\n" <<
+        "Successful block placement: +1\n" <<
+        "Unsuccessful block placement: -1\n" <<
+        "Clearing a row: +5\n" <<
+        "Winning and Losing: \n" <<
+        "If the blocks reach the top, you lose!\n" <<
+        "There is no Winning, so play until you lose.\n" <<
+        "Comment your highscore in the comment section below!\n" <<
+        "----------------------------" << std::endl;
+}
+
 template <typename TRow>
 void printRow(const TRow& row){
         std::cout << "|";
