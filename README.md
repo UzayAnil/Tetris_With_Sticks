@@ -13,4 +13,4 @@ Winning and Losing:
 If the blocks reach the top, you lose!
 There is no Winning, so play until you lose.
 
-(This is a prototype from https://www.repl.it)
+[![Run on Repl.it](https://repl.it/badge/github/UzayAnil/Tetris_With_Sticks)](https://repl.it/github/UzayAnil/Tetris_With_Sticks)
