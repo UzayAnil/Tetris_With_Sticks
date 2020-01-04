@@ -1,4 +1,4 @@
-# Tetris_With_Sticks
+# Tetris With Sticks
 
 Game Play:
 In each turn, you are given a block of varying length.
